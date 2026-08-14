@@ -19,6 +19,8 @@ export type Character = {
   /** Single kanji placeholder glyph per record. */
   monogram: string;
   className: string;
+  /** Stable, URL-safe id of the record's class — links the character to the class register. */
+  classId: string;
   yearLabel: string;
   status: "Active";
   recordId: string;
@@ -35,6 +37,7 @@ export const CHARACTERS: Character[] = [
     jp: "綾小路 清隆",
     monogram: "綾",
     className: "2-D",
+    classId: "2-d",
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-001",
@@ -50,6 +53,7 @@ export const CHARACTERS: Character[] = [
     jp: "堀北 鈴音",
     monogram: "堀",
     className: "2-D",
+    classId: "2-d",
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-002",
@@ -65,6 +69,7 @@ export const CHARACTERS: Character[] = [
     jp: "櫛田 桔梗",
     monogram: "櫛",
     className: "2-D",
+    classId: "2-d",
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-003",
@@ -80,6 +85,7 @@ export const CHARACTERS: Character[] = [
     jp: "須藤 健",
     monogram: "須",
     className: "2-D",
+    classId: "2-d",
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-004",

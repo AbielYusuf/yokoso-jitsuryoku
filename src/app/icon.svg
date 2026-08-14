@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>ANHS Private Archive</title>
+  <rect width="64" height="64" fill="#070708" />
+  <!-- crosshair -->
+  <path d="M32 7v50" fill="none" stroke="#eae8e4" stroke-opacity="0.16" stroke-width="1" />
+  <path d="M7 32h50" fill="none" stroke="#eae8e4" stroke-opacity="0.16" stroke-width="1" />
+  <!-- abstract A monogram -->
+  <path d="M20 45 L32 16 L44 45" fill="none" stroke="#eae8e4" stroke-width="2.5" />
+  <path d="M25 33.5 H39" fill="none" stroke="#e4007f" stroke-width="2.5" />
+  <!-- registration crop marks -->
+  <path d="M8 18 V8 H18" fill="none" stroke="#eae8e4" stroke-opacity="0.35" stroke-width="1.25" />
+  <path d="M56 18 V8 H46" fill="none" stroke="#eae8e4" stroke-opacity="0.35" stroke-width="1.25" />
+  <path d="M8 46 V56 H18" fill="none" stroke="#eae8e4" stroke-opacity="0.35" stroke-width="1.25" />
+  <path d="M56 46 V56 H46" fill="none" stroke="#e4007f" stroke-width="1.25" />
+</svg>

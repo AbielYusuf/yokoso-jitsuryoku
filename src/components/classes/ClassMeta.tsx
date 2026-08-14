@@ -4,6 +4,10 @@ export function ClassMeta({ klass }: { klass: ClassRecord }) {
   const rows: Array<{ label: string; value: string }> = [
     { label: "Status", value: klass.status },
     { label: "Class Rank", value: klass.rank },
+    {
+      label: "Class Points",
+      value: klass.classPoints == null ? "Pending" : String(klass.classPoints),
+    },
     { label: "Homeroom", value: klass.homeroom ?? "—" },
     { label: "Record", value: klass.recordId },
   ];

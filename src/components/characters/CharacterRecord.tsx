@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Character } from "@/data/characters";
 import { CharacterPortrait } from "@/components/characters/CharacterPortrait";
 import { CharacterMeta } from "@/components/characters/CharacterMeta";
@@ -34,8 +35,15 @@ export function CharacterRecord({ character, index, flip }: CharacterRecordProps
           data-archive-block
           className="mt-8 font-display text-5xl uppercase leading-[0.95] tracking-[0.02em] text-fg sm:text-6xl lg:text-[4.25rem]"
         >
-          <span className="block">{character.firstName}</span>
-          <span className="block text-muted/85">{character.lastName}</span>
+          <Link
+            href={`/characters/${character.id}`}
+            className="block transition-[translate] duration-700 ease-out group-hover:translate-x-2 focus-visible:text-accent"
+          >
+            <span className="block">{character.firstName}</span>
+            <span className="block text-muted/85 transition-colors duration-500 group-hover:text-fg">
+              {character.lastName}
+            </span>
+          </Link>
         </h2>
 
         <p

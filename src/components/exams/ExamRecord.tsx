@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ExamRecord as ExamData } from "@/data/exams";
 import { ExamMeta } from "@/components/exams/ExamMeta";
 
@@ -30,11 +31,14 @@ export function ExamRecord({ exam, index }: ExamRecordProps) {
       {/* title — main area */}
       <div className={`col-span-12 lg:col-span-5 lg:self-center ${titleCol}`}>
         <h2 data-exam-block>
-          <span className="block transition-[translate] duration-700 ease-out group-hover:translate-x-2">
+          <Link
+            href={`/exams/${exam.id}`}
+            className="block transition-[translate] duration-700 ease-out group-hover:translate-x-2 focus-visible:text-accent"
+          >
             <span className="block font-display text-3xl uppercase leading-[1.02] tracking-[0.02em] text-fg sm:text-4xl lg:text-[2.75rem]">
               {exam.title}
             </span>
-          </span>
+          </Link>
         </h2>
 
         <p

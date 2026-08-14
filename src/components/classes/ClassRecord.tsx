@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ClassRecord as ClassData } from "@/data/classes";
 import { ClassMeta } from "@/components/classes/ClassMeta";
 
@@ -47,9 +48,12 @@ export function ClassRecord({ klass, index, side }: ClassRecordProps) {
         </p>
 
         <h2 data-class-block className="mt-2">
-          <span className="block font-display text-6xl uppercase leading-[0.85] tracking-[0.01em] text-fg transition-[translate] duration-700 ease-out group-hover:translate-x-2 sm:text-7xl lg:text-[8rem]">
+          <Link
+            href={`/classes/${klass.id}`}
+            className="block font-display text-6xl uppercase leading-[0.85] tracking-[0.01em] text-fg transition-[translate] duration-700 ease-out group-hover:translate-x-2 focus-visible:text-accent sm:text-7xl lg:text-[8rem]"
+          >
             {klass.name}
-          </span>
+          </Link>
         </h2>
 
         <p

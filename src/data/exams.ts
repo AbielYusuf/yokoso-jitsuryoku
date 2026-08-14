@@ -15,6 +15,17 @@ export type ExamRecord = {
   recordId: string;
   description: string;
   result?: string;
+  /**
+   * Architecture for the future exam → character relationship. References only
+   * (no duplicated character objects). Left unpopulated until a verified
+   * roster exists — do not fabricate participants.
+   */
+  participantIds?: string[];
+  /**
+   * Future resolved-result records. Left unpopulated; no results are claimed
+   * as official yet.
+   */
+  resultIds?: string[];
 };
 
 export const EXAMS: ExamRecord[] = [

@@ -17,6 +17,13 @@ export type TimelineRecord = {
   status: string;
   recordId: string;
   description: string;
+  /**
+   * Relationship architecture for the future canon pass. References only;
+   * left unpopulated until a connection is explicitly supported by the data.
+   */
+  relatedExamId?: string;
+  relatedCharacterIds?: string[];
+  relatedClassId?: string;
 };
 
 export const TIMELINE: TimelineRecord[] = [

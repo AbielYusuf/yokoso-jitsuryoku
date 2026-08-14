@@ -16,6 +16,11 @@ export type RankingRecord = {
   recordId: string;
   score?: string;
   description?: string;
+  /**
+   * Links a ranking entry to its resolved character record when the identity
+   * is explicit and safe. Provisional / Name Pending entries omit this.
+   */
+  characterId?: string;
 };
 
 export const RANKING: RankingRecord[] = [
@@ -27,6 +32,7 @@ export const RANKING: RankingRecord[] = [
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-EVAL-001",
+    characterId: "ayanokoji-kiyotaka",
     score: "864",
     description: "Recorded near the top of the evaluation sheet without ceremony.",
   },
@@ -38,6 +44,7 @@ export const RANKING: RankingRecord[] = [
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-EVAL-002",
+    characterId: "horikita-suzune",
     score: "812",
     description: "A controlled, deliberate performance across all recorded measures.",
   },
@@ -49,6 +56,7 @@ export const RANKING: RankingRecord[] = [
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-EVAL-003",
+    characterId: "kushida-kikyo",
     score: "794",
     description: "Consistently high marks; the sheet and the subject rarely agree.",
   },
@@ -60,6 +68,7 @@ export const RANKING: RankingRecord[] = [
     yearLabel: "Second Year",
     status: "Active",
     recordId: "ANHS-EVAL-004",
+    characterId: "sudo-ken",
     description: "Strength present in the physical record, uneven elsewhere.",
   },
   {
