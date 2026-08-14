@@ -39,6 +39,7 @@ export const CLASSES: ClassRecord[] = [
     classPoints: null,
     description:
       "The lead division. High cumulative points, held to the strictest accounting.",
+    studentIds: ["sakayanagi-aris", "katsuragi-kouhei"],
   },
   {
     id: "2-b",
@@ -51,6 +52,7 @@ export const CLASSES: ClassRecord[] = [
     classPoints: null,
     description:
       "A steady middle register. Consistent in examinations and conduct alike.",
+    studentIds: ["ichinose-honami", "kanzaki-ryuji"],
   },
   {
     id: "2-c",
@@ -63,6 +65,12 @@ export const CLASSES: ClassRecord[] = [
     classPoints: null,
     description:
       "Standing below the median. Outcomes recorded with careful attention.",
+    studentIds: [
+      "ryuen-kakeru",
+      "ibuki-mio",
+      "shiina-hiyori",
+      "ishizaki-daichi",
+    ],
   },
   {
     id: "2-d",
@@ -78,8 +86,19 @@ export const CLASSES: ClassRecord[] = [
     studentIds: [
       "ayanokoji-kiyotaka",
       "horikita-suzune",
+      "karuizawa-kei",
       "kushida-kikyo",
+      "hirata-yousuke",
+      "koenji-rokusuke",
       "sudo-ken",
+      "ike-kanji",
+      "sakura-airi",
+      "hasebe-haruka",
+      "yukimura-teruhiko",
+      "miyake-akito",
+      "sato-maya",
+      "matsushita-chiaki",
+      "shinohara-satsuki",
     ],
   },
 ];
