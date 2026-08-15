@@ -203,6 +203,6 @@ export const CLASSES: ClassRecord[] = [
     classPoints: null,
     description:
       "A third-year register standing against the lead division's sway.",
-    studentIds: ["kiriyama-ikuto"],
+    studentIds: ["kiriyama-ikuto", "kiryuin-fuka"],
   },
 ];
