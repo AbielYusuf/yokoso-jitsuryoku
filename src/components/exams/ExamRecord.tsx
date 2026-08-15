@@ -8,7 +8,7 @@ type ExamRecordProps = {
 };
 
 export function ExamRecord({ exam, index }: ExamRecordProps) {
-  const order = String(index + 1).padStart(2, "0");
+  const order = String(exam.chronologicalOrder).padStart(2, "0");
 
   // register rhythm — the title column shifts on alternating rows
   const titleCol = index % 2 === 1 ? "lg:col-start-5" : "lg:col-start-4";
@@ -45,9 +45,11 @@ export function ExamRecord({ exam, index }: ExamRecordProps) {
           data-exam-block
           className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.3em] text-muted/70"
         >
-          <span>{exam.type}</span>
+          <span>{exam.japaneseName}</span>
           <span aria-hidden="true" className="h-px w-5 bg-accent/50" />
-          <span>{exam.yearLabel}</span>
+          <span>
+            Season {exam.season} · {exam.episodeRange}
+          </span>
         </p>
       </div>
 

@@ -1,12 +1,20 @@
 import type { ExamRecord } from "@/data/exams";
+import { getClassById } from "@/lib/records";
 
 export function ExamDetailMeta({ exam }: { exam: ExamRecord }) {
-  const rows = [
-    { label: "Status", value: exam.status },
-    { label: "Type", value: exam.type },
+  const victor = exam.victorClassId ? getClassById(exam.victorClassId) : undefined;
+
+  const rows: Array<{ label: string; value: string }> = [
+    { label: "Category", value: exam.category },
+    { label: "Season", value: `Season ${exam.season}` },
+    { label: "Episodes", value: exam.episodeRange },
     { label: "Year", value: exam.yearLabel },
-    ...(exam.result ? [{ label: "Result", value: exam.result }] : []),
+    { label: "Semester", value: exam.semester },
+    { label: "Expulsion Risk", value: exam.expulsionRisk ? "Yes" : "No" },
+    { label: "Status", value: exam.status },
     { label: "Record", value: exam.recordId },
+    { label: "Evidence", value: exam.evidenceLevel },
+    ...(victor ? [{ label: "Victor", value: victor.name }] : []),
   ];
 
   return (

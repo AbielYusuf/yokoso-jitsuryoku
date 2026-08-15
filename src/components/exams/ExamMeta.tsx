@@ -2,10 +2,10 @@ import type { ExamRecord } from "@/data/exams";
 
 export function ExamMeta({ exam }: { exam: ExamRecord }) {
   const rows: Array<{ label: string; value: string }> = [
-    { label: "Status", value: exam.status },
-    { label: "Type", value: exam.type },
+    { label: "Category", value: exam.category },
     { label: "Year", value: exam.yearLabel },
-    ...(exam.result ? [{ label: "Result", value: exam.result }] : []),
+    { label: "Semester", value: exam.semester },
+    ...(exam.expulsionRisk ? [{ label: "Risk", value: "Expulsion" }] : []),
     { label: "Record", value: exam.recordId },
   ];
 
@@ -21,7 +21,7 @@ export function ExamMeta({ exam }: { exam: ExamRecord }) {
           </dt>
           <dd
             className={`font-mono text-[10px] uppercase tracking-[0.2em] text-fg/85 transition-colors duration-500 ${
-              row.label === "Status" ? "group-hover:text-accent" : ""
+              row.label === "Risk" ? "group-hover:text-accent" : ""
             }`}
           >
             {row.value}

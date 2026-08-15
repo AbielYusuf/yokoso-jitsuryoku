@@ -27,11 +27,24 @@ export function ExamDetailHeader({ exam }: { exam: ExamRecord }) {
 
         <p
           data-exd-block
-          className="mt-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted/70"
+          className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.3em] text-muted/70"
         >
-          <span>{exam.type}</span>
+          <span>{exam.category}</span>
           <span aria-hidden="true" className="h-px w-6 bg-accent/60" />
           <span>{exam.yearLabel}</span>
+          <span aria-hidden="true" className="h-px w-6 bg-accent/60" />
+          <span>{exam.semester}</span>
+        </p>
+
+        <p
+          data-exd-block
+          className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-[0.3em] text-muted/70"
+        >
+          <span>{exam.japaneseName}</span>
+          <span aria-hidden="true" className="h-px w-6 bg-accent/60" />
+          <span>
+            Season {exam.season} · {exam.episodeRange}
+          </span>
         </p>
 
         <p

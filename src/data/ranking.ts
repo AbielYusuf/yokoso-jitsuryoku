@@ -1,92 +1,204 @@
 /**
- * Ranking records — ANHS academic evaluation archive.
+ * Ranking records — Year 2 Initial OAA / Individual Academic Evaluation
+ * archive.
  *
- * PLACEHOLDER / STRUCTURAL DATA. The full canon ranking pass happens later.
- * `score` only exists to establish the visual architecture for future real
- * data; entries without a score simply omit the row. `description` is kept
- * for later use and is intentionally not rendered yet.
+ * Each record is an anime-canon Overall Ability Assessment entry captured at
+ * the beginning of Year 2. This is an indexed evaluation sheet, not a
+ * complete school-wide ranking — Anime Season 4 does not establish an
+ * individual standing order for every student.
+ *
+ * Grades and numerical scores are stored separately so the UI can render
+ * them cleanly and future filtering/sorting needs no string parsing.
  */
 export type RankingRecord = {
   id: string;
-  rank: number;
+  /** Resolves to the existing character record; the name links to it. */
+  characterId: string;
   name: string;
   className: string;
   yearLabel: string;
-  status: string;
+
+  academicGrade: string;
+  academicScore: number;
+
+  physicalGrade: string;
+  physicalScore: number;
+
+  adaptabilityGrade: string;
+  adaptabilityScore: number;
+
+  socialContributionGrade: string;
+  socialContributionScore: number;
+
+  overallGrade: string;
+  overallScore: number;
+
+  /** Evaluation period this sheet belongs to. */
+  evaluationPeriod: string;
+  status: "Active";
+
   recordId: string;
-  score?: string;
-  description?: string;
-  /**
-   * Links a ranking entry to its resolved character record when the identity
-   * is explicit and safe. Provisional / Name Pending entries omit this.
-   */
-  characterId?: string;
 };
 
 export const RANKING: RankingRecord[] = [
   {
-    id: "rk-ayanokoji",
-    rank: 1,
-    name: "Kiyotaka Ayanokoji",
-    className: "2-D",
-    yearLabel: "Second Year",
-    status: "Active",
-    recordId: "ANHS-EVAL-001",
-    characterId: "ayanokoji-kiyotaka",
-    score: "864",
-    description: "Recorded near the top of the evaluation sheet without ceremony.",
-  },
-  {
     id: "rk-horikita",
-    rank: 2,
+    characterId: "horikita-suzune",
     name: "Suzune Horikita",
     className: "2-D",
     yearLabel: "Second Year",
+    academicGrade: "A-",
+    academicScore: 81,
+    physicalGrade: "B-",
+    physicalScore: 61,
+    adaptabilityGrade: "B+",
+    adaptabilityScore: 77,
+    socialContributionGrade: "C+",
+    socialContributionScore: 58,
+    overallGrade: "B",
+    overallScore: 69,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
     status: "Active",
-    recordId: "ANHS-EVAL-002",
-    characterId: "horikita-suzune",
-    score: "812",
-    description: "A controlled, deliberate performance across all recorded measures.",
+    recordId: "ANHS-OAA-001",
   },
   {
-    id: "rk-kushida",
-    rank: 3,
-    name: "Kikyo Kushida",
+    id: "rk-ayanokoji",
+    characterId: "ayanokoji-kiyotaka",
+    name: "Kiyotaka Ayanokoji",
     className: "2-D",
     yearLabel: "Second Year",
+    academicGrade: "C+",
+    academicScore: 51,
+    physicalGrade: "C+",
+    physicalScore: 60,
+    adaptabilityGrade: "D+",
+    adaptabilityScore: 39,
+    socialContributionGrade: "D+",
+    socialContributionScore: 40,
+    overallGrade: "C",
+    overallScore: 47,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
     status: "Active",
-    recordId: "ANHS-EVAL-003",
-    characterId: "kushida-kikyo",
-    score: "794",
-    description: "Consistently high marks; the sheet and the subject rarely agree.",
+    recordId: "ANHS-OAA-002",
   },
   {
     id: "rk-sudo",
-    rank: 4,
+    characterId: "sudo-ken",
     name: "Ken Sudo",
     className: "2-D",
     yearLabel: "Second Year",
+    academicGrade: "E",
+    academicScore: 20,
+    physicalGrade: "A+",
+    physicalScore: 96,
+    adaptabilityGrade: "C-",
+    adaptabilityScore: 43,
+    socialContributionGrade: "C-",
+    socialContributionScore: 41,
+    overallGrade: "C-",
+    overallScore: 50,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
     status: "Active",
-    recordId: "ANHS-EVAL-004",
-    characterId: "sudo-ken",
-    description: "Strength present in the physical record, uneven elsewhere.",
+    recordId: "ANHS-OAA-003",
   },
   {
-    id: "rk-pending-01",
-    rank: 5,
-    name: "Name Pending",
+    id: "rk-kushida",
+    characterId: "kushida-kikyo",
+    name: "Kikyo Kushida",
     className: "2-D",
     yearLabel: "Second Year",
-    status: "Provisional",
-    recordId: "ANHS-EVAL-005",
+    academicGrade: "B+",
+    academicScore: 76,
+    physicalGrade: "B",
+    physicalScore: 65,
+    adaptabilityGrade: "A-",
+    adaptabilityScore: 80,
+    socialContributionGrade: "A",
+    socialContributionScore: 88,
+    overallGrade: "B+",
+    overallScore: 77,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
+    status: "Active",
+    recordId: "ANHS-OAA-004",
   },
   {
-    id: "rk-pending-02",
-    rank: 6,
-    name: "Name Pending",
-    className: "2-D",
+    id: "rk-katsuragi",
+    characterId: "katsuragi-kouhei",
+    name: "Kouhei Katsuragi",
+    className: "2-A",
     yearLabel: "Second Year",
-    status: "Provisional",
-    recordId: "ANHS-EVAL-006",
+    academicGrade: "A",
+    academicScore: 86,
+    physicalGrade: "C+",
+    physicalScore: 52,
+    adaptabilityGrade: "B",
+    adaptabilityScore: 69,
+    socialContributionGrade: "B",
+    socialContributionScore: 68,
+    overallGrade: "B+",
+    overallScore: 76,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
+    status: "Active",
+    recordId: "ANHS-OAA-005",
+  },
+  {
+    id: "rk-ichinose",
+    characterId: "ichinose-honami",
+    name: "Honami Ichinose",
+    className: "2-B",
+    yearLabel: "Second Year",
+    academicGrade: "A-",
+    academicScore: 79,
+    physicalGrade: "C+",
+    physicalScore: 54,
+    adaptabilityGrade: "A-",
+    adaptabilityScore: 83,
+    socialContributionGrade: "A+",
+    socialContributionScore: 95,
+    overallGrade: "A-",
+    overallScore: 80,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
+    status: "Active",
+    recordId: "ANHS-OAA-006",
+  },
+  {
+    id: "rk-sakayanagi",
+    characterId: "sakayanagi-aris",
+    name: "Arisu Sakayanagi",
+    className: "2-A",
+    yearLabel: "Second Year",
+    academicGrade: "A+",
+    academicScore: 100,
+    physicalGrade: "E-",
+    physicalScore: 9,
+    adaptabilityGrade: "A",
+    adaptabilityScore: 88,
+    socialContributionGrade: "B",
+    socialContributionScore: 66,
+    overallGrade: "B+",
+    overallScore: 75,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
+    status: "Active",
+    recordId: "ANHS-OAA-007",
+  },
+  {
+    id: "rk-ryuen",
+    characterId: "ryuen-kakeru",
+    name: "Kakeru Ryuen",
+    className: "2-C",
+    yearLabel: "Second Year",
+    academicGrade: "C",
+    academicScore: 43,
+    physicalGrade: "B",
+    physicalScore: 68,
+    adaptabilityGrade: "B+",
+    adaptabilityScore: 78,
+    socialContributionGrade: "B-",
+    socialContributionScore: 52,
+    overallGrade: "B-",
+    overallScore: 60,
+    evaluationPeriod: "Year 2 — Initial OAA Evaluation",
+    status: "Active",
+    recordId: "ANHS-OAA-008",
   },
 ];
