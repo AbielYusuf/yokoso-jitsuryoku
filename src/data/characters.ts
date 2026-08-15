@@ -861,6 +861,22 @@ export const CHARACTERS: Character[] = [
     description:
       "Class 3-B. Student council vice president who wishes to preserve the school's traditions, openly opposing Nagumo. He came to know Ayanokoji through Manabu Horikita's introduction.",
   },
+  {
+    id: "kiryuin-fuka",
+    firstName: "Fuka",
+    lastName: "Kiryuuin",
+    jp: "鬼龍院 楓花",
+    monogram: "鬼",
+    className: "3-B",
+    classId: "3-b",
+    yearLabel: "Third Year",
+    status: "Active",
+    recordId: "ANHS-063",
+    image: null,
+    portraitAspect: "3 / 4",
+    description:
+      "Class 3-B. A self-assured third-year who involves herself only when it suits her and takes an interest in capable people. She stepped in to help Ayanokoji against Tsukishiro and Shiba during the uninhabited island examination.",
+  },
 
   // ------------------------------------------------------------------ Graduated
   {
@@ -1008,6 +1024,22 @@ export const CHARACTERS: Character[] = [
     image: null,
     portraitAspect: "3 / 4",
     description: "Faculty. Homeroom teacher of Class 2-A.",
+  },
+  {
+    id: "shiba-kazuma",
+    firstName: "Katsunori",
+    lastName: "Shiba",
+    jp: "司馬 克典",
+    monogram: "司",
+    className: "Faculty",
+    classId: "",
+    yearLabel: "Faculty",
+    status: "Active",
+    recordId: "ANHS-064",
+    image: null,
+    portraitAspect: "3 / 4",
+    description:
+      "Faculty. A staff member acting under acting chairman Tsukishiro, intent on expelling Ayanokoji. He confronted Ayanokoji on the island during the Year 2 examination and withdrew together with Tsukishiro.",
   },
 
   // ------------------------------------------------------------------ Administration

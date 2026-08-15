@@ -329,6 +329,8 @@ export const EXAMS: ExamRecord[] = [
       "nanase-tsubasa",
       "tsukishiro-tokunari",
       "nagumo-miyabi",
+      "kiryuin-fuka",
+      "shiba-kazuma",
     ],
     victorClassId: "3-a",
     evidenceLevel: "CANON — EXPLICIT",
