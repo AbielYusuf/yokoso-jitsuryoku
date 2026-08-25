@@ -285,7 +285,7 @@ export const CHARACTERS: Character[] = [
 
   // ------------------------------------------------------------------ 2-A
   {
-    id: "sakayanagi-aris",
+    id: "sakayanagi-arisu",
     firstName: "Arisu",
     lastName: "Sakayanagi",
     jp: "坂柳 有栖",
@@ -1026,7 +1026,7 @@ export const CHARACTERS: Character[] = [
     description: "Faculty. Homeroom teacher of Class 2-A.",
   },
   {
-    id: "shiba-kazuma",
+    id: "shiba-katsunori",
     firstName: "Katsunori",
     lastName: "Shiba",
     jp: "司馬 克典",

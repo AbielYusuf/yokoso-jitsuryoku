@@ -163,7 +163,7 @@ export const RANKING: RankingRecord[] = [
   },
   {
     id: "rk-sakayanagi",
-    characterId: "sakayanagi-aris",
+    characterId: "sakayanagi-arisu",
     name: "Arisu Sakayanagi",
     className: "2-A",
     yearLabel: "Second Year",

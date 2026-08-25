@@ -10,7 +10,7 @@
  *
  * IDs reference `characters.ts` / `classes.ts` only. Where the supplied
  * research id did not exist in the archive the record was mapped to the
- * existing id (`sakayanagi-arisu` -> `sakayanagi-aris`, `tsukishiro` ->
+ * existing id (`tsukishiro` ->
  * `tsukishiro-tokunari`, `class-1d` -> `1-d`); ids with no archive record
  * were omitted and are reported rather than invented.
  */
@@ -316,10 +316,10 @@ export const EXAMS: ExamRecord[] = [
       "Exemption Cost: A student targeted for expulsion can theoretically clear/save themselves if they accumulate enough external praise votes from other classes or pay an immense sum of private points (e.g., 20 million points).",
     ],
     expelledStudentIds: ["yamauchi-haruki", "totsuka-yahiko", "manabe-shiho"],
-    protectedStudentIds: ["ayanokoji-kiyotaka", "sakayanagi-aris", "ryuen-kakeru"],
+    protectedStudentIds: ["ayanokoji-kiyotaka", "sakayanagi-arisu", "ryuen-kakeru"],
     participantIds: [
       "ayanokoji-kiyotaka",
-      "sakayanagi-aris",
+      "sakayanagi-arisu",
       "ryuen-kakeru",
       "horikita-suzune",
       "ichinose-honami",
@@ -361,7 +361,7 @@ export const EXAMS: ExamRecord[] = [
     protectedStudentIds: ["ayanokoji-kiyotaka"],
     participantIds: [
       "ayanokoji-kiyotaka",
-      "sakayanagi-aris",
+      "sakayanagi-arisu",
       "ryuen-kakeru",
       "ichinose-honami",
       "horikita-suzune",
@@ -443,14 +443,14 @@ export const EXAMS: ExamRecord[] = [
       "tsukishiro-tokunari",
       "nagumo-miyabi",
       "kiryuin-fuka",
-      "shiba-kazuma",
+      "shiba-katsunori",
       "horikita-suzune",
       "hosen-kazuomi",
       "ryuen-kakeru",
       "amasawa-ichika",
       "ibuki-mio",
       "koenji-rokusuke",
-      "sakayanagi-aris",
+      "sakayanagi-arisu",
       "ichinose-honami",
       "katsuragi-kouhei",
       "kiriyama-ikuto",

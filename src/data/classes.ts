@@ -94,7 +94,7 @@ export const CLASSES: ClassRecord[] = [
     description:
       "The lead division. High cumulative points, held to the strictest accounting.",
     studentIds: [
-      "sakayanagi-aris",
+      "sakayanagi-arisu",
       "katsuragi-kouhei",
       "kamuro-masumi",
       "hashimoto-masayoshi",
