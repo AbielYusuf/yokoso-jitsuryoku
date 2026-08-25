@@ -12,17 +12,18 @@ const STATUS: Record<Phase, string> = {
   open: "ACCESS GRANTED",
 };
 
-export function EnterGate() {
+export function EnterGate({ onUnlocked }: { onUnlocked?: () => void }) {
   const { activate } = useSoundtrack();
   const [phase, setPhase] = useState<Phase>("locked");
   const timerRef = useRef<number | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const enter = () => {
     if (phase !== "locked") return;
     activate();
     setPhase("verifying");
 
-    const container = document.querySelector<HTMLElement>("[data-role='gate']");
+    const container = rootRef.current;
     if (container) {
       gsap.fromTo(
         container.querySelector("span[data-gate-line]"),
@@ -31,7 +32,10 @@ export function EnterGate() {
       );
     }
 
-    timerRef.current = window.setTimeout(() => setPhase("open"), 1100);
+    timerRef.current = window.setTimeout(() => {
+      setPhase("open");
+      onUnlocked?.();
+    }, 1100);
   };
 
   const handleKey = (event: React.KeyboardEvent) => {
@@ -42,7 +46,7 @@ export function EnterGate() {
   };
 
   return (
-    <div data-reveal data-role="gate" className="w-fit">
+    <div ref={rootRef} data-reveal data-role="gate" className="w-fit">
       <div
         role="button"
         tabIndex={0}

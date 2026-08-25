@@ -4,6 +4,7 @@ import { site } from "@/data/site";
 import { SiteFrame } from "@/components/frame/SiteFrame";
 import { SiteNavProvider } from "@/components/nav/SiteNavProvider";
 import { SoundtrackProvider } from "@/components/audio/SoundtrackProvider";
+import { InitialUnlockGate } from "@/components/entry/InitialUnlockGate";
 import "./globals.css";
 
 const { name, archive, school } = site;
@@ -36,8 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-svh">
         <SiteNavProvider>
           <SoundtrackProvider>
-            <SiteFrame />
-            {children}
+            <InitialUnlockGate>
+              <SiteFrame />
+              {children}
+            </InitialUnlockGate>
           </SoundtrackProvider>
         </SiteNavProvider>
       </body>

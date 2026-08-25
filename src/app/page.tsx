@@ -1,5 +1,4 @@
 import { EntranceSequence } from "@/components/entry/EntranceSequence";
-import { EnterGate } from "@/components/entry/EnterGate";
 import { ScrollNote } from "@/components/entry/ScrollNote";
 import { HeroTitle } from "@/components/hero/HeroTitle";
 import { VisualPanel } from "@/components/hero/VisualPanel";
@@ -22,12 +21,6 @@ export default function Home() {
           <div className="w-full max-w-[26rem] lg:col-span-4 lg:col-start-8 lg:row-span-2 lg:max-w-none lg:self-center">
             <VisualPanel />
           </div>
-
-          {/* Gate — sits below the title, far left of the panel */}
-          <div className="lg:col-span-5 lg:col-start-2 lg:self-end lg:pb-4">
-            <EnterGate />
-          </div>
-
           {/* Quiet metadata, bottom-left */}
           <div
             data-reveal
