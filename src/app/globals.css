@@ -91,3 +91,148 @@ body {
     animation: none;
   }
 }
+
+/* -- Global soundtrack system --------------------------------------- */
+.soundtrack-shell {
+  position: relative;
+  z-index: 55;
+  flex-shrink: 0;
+}
+
+.soundtrack-panel {
+  border: 1px solid var(--line-strong);
+  background: rgba(7, 7, 8, 0.97);
+}
+
+.soundtrack-trigger {
+  display: grid;
+  width: 2.125rem;
+  height: 2.125rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.soundtrack-trigger:hover,
+.soundtrack-trigger[aria-expanded="true"] {
+  border-color: var(--line-strong);
+  color: var(--fg);
+}
+
+.soundtrack-trigger-active {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  color: var(--accent);
+}
+
+.soundtrack-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.75rem);
+  width: min(24rem, calc(100vw - 1.5rem));
+  overflow: hidden;
+  animation: soundtrack-panel-in 180ms var(--ease-out-expo);
+}
+
+.soundtrack-track-list {
+  max-height: min(22rem, 48svh);
+  overflow-y: auto;
+}
+
+.soundtrack-track {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.65rem 1rem;
+  color: var(--muted);
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.soundtrack-track:hover,
+.soundtrack-track[aria-current="true"] {
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.soundtrack-control {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.soundtrack-control:hover {
+  border-color: var(--line-strong);
+  color: var(--fg);
+}
+
+.soundtrack-control-primary {
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  color: var(--accent);
+}
+
+.soundtrack-range {
+  height: 1px;
+  cursor: pointer;
+  appearance: none;
+  background: var(--line-strong);
+  accent-color: var(--accent);
+}
+
+.soundtrack-range::-webkit-slider-thumb {
+  width: 7px;
+  height: 7px;
+  appearance: none;
+  border-radius: 0;
+  background: var(--accent);
+}
+
+.soundtrack-range::-moz-range-thumb {
+  width: 7px;
+  height: 7px;
+  border: 0;
+  border-radius: 0;
+  background: var(--accent);
+}
+
+@keyframes soundtrack-panel-in {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .soundtrack-shell {
+    position: static;
+  }
+
+  .soundtrack-panel {
+    position: fixed;
+    right: 0.75rem;
+    top: calc(3.5rem + 0.75rem);
+    width: calc(100vw - 1.5rem);
+    max-height: calc(100svh - 5rem - env(safe-area-inset-bottom));
+  }
+
+  .soundtrack-control {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .soundtrack-trigger {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .soundtrack-panel { animation: none; }
+  .soundtrack-control,
+  .soundtrack-track,
+  .soundtrack-trigger { transition: none; }
+}

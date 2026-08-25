@@ -3,6 +3,7 @@ import { appFonts } from "@/lib/fonts";
 import { site } from "@/data/site";
 import { SiteFrame } from "@/components/frame/SiteFrame";
 import { SiteNavProvider } from "@/components/nav/SiteNavProvider";
+import { SoundtrackProvider } from "@/components/audio/SoundtrackProvider";
 import "./globals.css";
 
 const { name, archive, school } = site;
@@ -34,8 +35,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={fontVariables}>
       <body className="min-h-svh">
         <SiteNavProvider>
-          <SiteFrame />
-          {children}
+          <SoundtrackProvider>
+            <SiteFrame />
+            {children}
+          </SoundtrackProvider>
         </SiteNavProvider>
       </body>
     </html>

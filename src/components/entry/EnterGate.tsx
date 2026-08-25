@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { gsap } from "@/lib/gsap";
+import { useSoundtrack } from "@/hooks/useSoundtrack";
 
 type Phase = "locked" | "verifying" | "open";
 
@@ -12,11 +13,13 @@ const STATUS: Record<Phase, string> = {
 };
 
 export function EnterGate() {
+  const { activate } = useSoundtrack();
   const [phase, setPhase] = useState<Phase>("locked");
   const timerRef = useRef<number | null>(null);
 
   const enter = () => {
     if (phase !== "locked") return;
+    activate();
     setPhase("verifying");
 
     const container = document.querySelector<HTMLElement>("[data-role='gate']");

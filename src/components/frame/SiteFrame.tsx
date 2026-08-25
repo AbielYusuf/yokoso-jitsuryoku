@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useSyncExternalStore } from "react";
 import { gsap } from "@/lib/gsap";
 import { site } from "@/data/site";
 import { NavMenuTrigger } from "@/components/nav/NavMenuTrigger";
+import { SoundtrackPlayer } from "@/components/audio/SoundtrackPlayer";
 
 const formatClock = () =>
   new Intl.DateTimeFormat("en-GB", {
@@ -87,6 +88,7 @@ export function SiteFrame() {
               </span>
               <span>Sys.Online</span>
             </p>
+            <SoundtrackPlayer />
             <NavMenuTrigger />
           </div>
         </div>
