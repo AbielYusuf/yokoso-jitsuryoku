@@ -1,36 +1,191 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# ANHS // PRIVATE ARCHIVE
 
-First, run the development server:
+### ようこそ実力至上主義の教室へ
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img width="2296" height="1254" alt="image" src="https://github.com/user-attachments/assets/b354d098-a329-4af8-816a-5d1ac4411478" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A fan-made **Classroom of the Elite** archive experience  
+designed around the visual identity of a restricted ANHS information system.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**STATUS // ONLINE**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+[Live Demo](https://yokoso-jitsuryoku.vercel.app)
 
-## Learn More
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## // Overview
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**ANHS Private Archive** is an unofficial fan-made web experience inspired by  
+*Classroom of the Elite / ようこそ実力至上主義の教室へ*.
 
-## Deploy on Vercel
+Rather than presenting the series as a conventional wiki, this project treats its data as if it were part of an internal Advanced Nurturing High School archive.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The interface combines:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- classified archive presentation
+- dark institutional styling
+- restrained magenta accents
+- motion-driven record reveals
+- persistent soundtrack playback
+- character, class, exam, and evaluation records
+- a global access-gate experience
+
+The goal is to make browsing the archive feel like accessing an internal ANHS system rather than reading a standard database.
+
+---
+
+## // Live Archive
+
+**Deployment**
+
+https://yokoso-jitsuryoku.vercel.app
+
+> ENTER THE SCHOOL  
+> Access the archive through the global entry gate.
+
+---
+
+## // Features
+
+### Archive System
+
+- Character archive
+- Character detail records
+- Class archive
+- Class detail records
+- Special Exam archive
+- Exam detail records
+- Individual OAA evaluation archive
+- Timeline archive
+- About archive
+
+### Interaction
+
+- Global first-entry unlock gate
+- Persistent App Router shell
+- Global navigation overlay
+- Character search and filtering
+- Static detail route generation
+- Responsive layouts
+- Keyboard-accessible controls
+- Reduced-motion support
+
+### Motion
+
+- GSAP page entrances
+- ScrollTrigger reveals
+- Route-specific archive motion
+- Navigation overlay animation
+- Initial unlock transition
+
+---
+
+## // Current Archive Scope
+
+Current archive coverage:
+
+**Season 1 → Season 4 Episode 16**
+
+Current source data includes:
+
+| Archive | Records |
+|---|---:|
+| Characters | 64 |
+| Classes | 10 |
+| Special Exams | 10 |
+| OAA Evaluations | 8 |
+| Soundtrack Tracks | 11 |
+
+The archive follows the internal canon scope and mapping established for this project.
+
+---
+
+## // OAA Archive
+
+The Ranking section is structured as an **Individual Academic Evaluation Archive**, based on the Year 2 initial OAA system.
+
+It is intentionally **not** presented as a fabricated complete school-wide ranking.
+
+Evaluations include:
+
+- Academic Ability
+- Physical Ability
+- Adaptability
+- Social Contribution
+- Overall Evaluation
+
+---
+
+## // Soundtrack System
+
+The site includes a persistent global soundtrack system.
+
+### Playback behavior
+
+- Every fresh session begins with **Classroom of The Elite (Quote)**
+- Music persists across client-side route navigation
+- Hard refresh starts a new soundtrack session
+- Volume preference persists locally
+- Shuffle avoids immediate repeats
+- Previous-track history is preserved during the active session
+- Manual track selection is supported
+- Seek, volume, play, pause, next, and previous controls are available through the header soundtrack interface
+
+The soundtrack system uses one persistent HTML audio element mounted at the application root.
+
+---
+
+## // Music
+
+Music featured in the website is by:
+
+**赤い神Enryu**
+
+Permission to use the tracks in this non-commercial fan project was granted directly by the artist via email.
+
+All music remains the property of its respective creator and rights holders.
+
+Special thanks to **赤い神Enryu** for allowing the soundtrack to be featured in this project.
+
+---
+
+## // Tech Stack
+
+- **Next.js**
+- **React**
+- **TypeScript**
+- **GSAP**
+- **ScrollTrigger**
+- **Lucide React**
+- **Vercel**
+
+---
+
+## // Architecture
+
+```text
+src/
+├── app/
+│   ├── characters/
+│   ├── classes/
+│   ├── exams/
+│   ├── ranking/
+│   └── timeline/
+│
+├── components/
+│   ├── audio/
+│   ├── characters/
+│   ├── classes/
+│   ├── entry/
+│   ├── exams/
+│   ├── frame/
+│   ├── nav/
+│   └── ranking/
+│
+├── data/
+├── hooks/
+└── lib/
