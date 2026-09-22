@@ -28,9 +28,9 @@ export type NavItem = {
 export const NAV_ITEMS: NavItem[] = [
   { index: "01", title: "Characters", jp: "人物", href: "/characters" },
   { index: "02", title: "Classes", jp: "クラス", href: "/classes" },
-  { index: "03", title: "Ranking", jp: "順位", href: "/ranking" },
-  { index: "04", title: "Special Exams", jp: "特別試験", href: "/exams" },
-  { index: "05", title: "Timeline", jp: "年表", href: "/timeline" },
+  { index: "03", title: "Special Exams", jp: "特別試験", href: "/exams" },
+  { index: "04", title: "Ranking", jp: "順位", href: "/ranking" },
+  { index: "05", title: "Dossiers", jp: "調査資料", href: "/dossiers" },
   { index: "06", title: "About", jp: "このアーカイブについて", href: "/about" },
 ];
 
@@ -71,6 +71,12 @@ export const PAGE_META: Record<NavItem["href"], PageMeta> = {
     title: "Timeline",
     jp: "年表",
     note: "A chronology of the campus — recorded, month by month.",
+  },
+  "/dossiers": {
+    code: "05",
+    title: "Dossiers",
+    jp: "調査資料",
+    note: "Classified case files connecting people, classes, and examinations.",
   },
   "/about": {
     code: "06",
