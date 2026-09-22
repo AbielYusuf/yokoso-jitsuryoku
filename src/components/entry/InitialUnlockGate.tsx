@@ -9,7 +9,8 @@ export function InitialUnlockGate({ children }: { children: React.ReactNode }) {
   if (unlocked) return <>{children}</>;
 
   return (
-    <main className="flex min-h-svh items-center justify-center overflow-hidden bg-bg px-6">
+    <main className="unlock-screen flex min-h-svh items-center justify-center overflow-hidden bg-bg px-5 sm:px-8">
+      <div aria-hidden="true" className="grain" />
       <EnterGate onUnlocked={() => setUnlocked(true)} />
     </main>
   );

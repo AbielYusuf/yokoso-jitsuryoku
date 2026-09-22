@@ -83,12 +83,58 @@ body {
   animation: scroll-hint 2.6s var(--ease-out-expo) 1.4s infinite;
 }
 
+/* -- Initial archive unlock ----------------------------------------- */
+.unlock-screen {
+  position: relative;
+  isolation: isolate;
+}
+
+.unlock-divider {
+  display: block;
+  width: 3.25rem;
+  height: 1px;
+  margin-inline: auto;
+  background: var(--line-strong);
+}
+
+.unlock-enter {
+  background: rgba(7, 7, 8, 0.88);
+}
+
+.unlock-enter:not(:disabled) {
+  cursor: pointer;
+}
+
+.unlock-enter:not(:disabled):hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line-strong));
+}
+
+.unlock-enter:disabled {
+  cursor: wait;
+}
+
+.unlock-enter-line {
+  max-width: 4rem;
+  transform-origin: left center;
+  transition: max-width 500ms var(--ease-out-expo), background-color 500ms ease;
+}
+
+.unlock-enter:not(:disabled):hover .unlock-enter-line,
+.unlock-enter:focus-visible .unlock-enter-line {
+  max-width: 5.5rem;
+  background-color: var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
   .scroll-dot {
     animation: none;
+  }
+  .unlock-enter,
+  .unlock-enter-line {
+    transition: none;
   }
 }
 
