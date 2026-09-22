@@ -4,7 +4,7 @@
 
 ### ようこそ実力至上主義の教室へ
 
-<img width="2296" height="1254" alt="image" src="https://github.com/user-attachments/assets/b354d098-a329-4af8-816a-5d1ac4411478" />
+<img width="2298" height="1579" alt="image" src="https://github.com/user-attachments/assets/1ff4ced1-3d04-4ce8-b68c-2f37e9f2ff05" />
 
 A fan-made **Classroom of the Elite** archive experience  
 designed around the visual identity of a restricted ANHS information system.
