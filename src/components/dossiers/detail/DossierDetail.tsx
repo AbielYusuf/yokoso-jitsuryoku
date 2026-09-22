@@ -11,6 +11,7 @@ export function DossierDetail({ dossier }: { dossier: DossierRecord }) {
     ["Classification", dossier.classification],
     ["Status", dossier.status],
     ...(dossier.schoolYear ? [["School Year", dossier.schoolYear]] : []),
+    ["Evidence", dossier.evidenceBoundary],
     ["Record", dossier.recordId],
   ];
 
@@ -54,6 +55,11 @@ export function DossierDetail({ dossier }: { dossier: DossierRecord }) {
             <p className="mt-8 max-w-[62ch] font-mono text-[11px] leading-[1.9] tracking-[0.07em] text-muted/70">
               {dossier.description}
             </p>
+            {dossier.spoilerNote && (
+              <p className="mt-6 border-l border-accent/40 pl-4 font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-muted/50">
+                Evidence note // {dossier.spoilerNote}
+              </p>
+            )}
           </section>
 
           <dl data-dossier-detail className="col-span-12 border-t border-line lg:col-span-3 lg:col-start-9">

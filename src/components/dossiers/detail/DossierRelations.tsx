@@ -11,12 +11,13 @@ type Relation = {
 
 function RelationGroup({ title, relations }: { title: string; relations: Relation[] }) {
   if (relations.length === 0) return null;
+  const headingId = `dossier-${title.toLowerCase().replaceAll(" ", "-")}-heading`;
 
   return (
-    <section data-dossier-detail aria-labelledby={`dossier-${title.toLowerCase()}-heading`}>
+    <section data-dossier-detail aria-labelledby={headingId}>
       <div className="flex items-baseline justify-between gap-6 border-b border-line pb-4">
         <h2
-          id={`dossier-${title.toLowerCase()}-heading`}
+          id={headingId}
           className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted/70"
         >
           Related {title}
@@ -48,19 +49,21 @@ function RelationGroup({ title, relations }: { title: string; relations: Relatio
 }
 
 export function DossierRelations({ dossier }: { dossier: DossierRecord }) {
-  const characters = dossier.relatedCharacterIds.flatMap((id) => {
+  const resolveCharacters = (ids: string[]) => ids.flatMap((id) => {
     const character = getCharacterById(id);
     return character
       ? [{ id, href: `/characters/${id}`, primary: `${character.lastName} ${character.firstName}`, secondary: character.recordId }]
       : [];
   });
-  const classes = (dossier.relatedClassIds ?? []).flatMap((id) => {
+  const centralCharacters = resolveCharacters(dossier.centralCharacterIds);
+  const secondaryCharacters = resolveCharacters(dossier.secondaryCharacterIds);
+  const classes = dossier.relatedClassIds.flatMap((id) => {
     const klass = getClassById(id);
     return klass
       ? [{ id, href: `/classes/${id}`, primary: `Class ${klass.name}`, secondary: klass.recordId }]
       : [];
   });
-  const exams = (dossier.relatedExamIds ?? []).flatMap((id) => {
+  const exams = dossier.relatedExamIds.flatMap((id) => {
     const exam = getExamById(id);
     return exam
       ? [{ id, href: `/exams/${id}`, primary: exam.title, secondary: exam.recordId }]
@@ -69,7 +72,10 @@ export function DossierRelations({ dossier }: { dossier: DossierRecord }) {
 
   return (
     <div className="grid gap-14 lg:grid-cols-2 lg:gap-x-16">
-      <RelationGroup title="Characters" relations={characters} />
+      <div className="grid content-start gap-14">
+        <RelationGroup title="Central Subjects" relations={centralCharacters} />
+        <RelationGroup title="Secondary Subjects" relations={secondaryCharacters} />
+      </div>
       <div className="grid content-start gap-14">
         <RelationGroup title="Classes" relations={classes} />
         <RelationGroup title="Exams" relations={exams} />
