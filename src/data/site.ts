@@ -29,9 +29,10 @@ export const NAV_ITEMS: NavItem[] = [
   { index: "01", title: "Characters", jp: "人物", href: "/characters" },
   { index: "02", title: "Classes", jp: "クラス", href: "/classes" },
   { index: "03", title: "Special Exams", jp: "特別試験", href: "/exams" },
-  { index: "04", title: "Ranking", jp: "順位", href: "/ranking" },
-  { index: "05", title: "Dossiers", jp: "調査資料", href: "/dossiers" },
-  { index: "06", title: "About", jp: "このアーカイブについて", href: "/about" },
+  { index: "04", title: "Locations", jp: "場所", href: "/locations" },
+  { index: "05", title: "Ranking", jp: "順位", href: "/ranking" },
+  { index: "06", title: "Dossiers", jp: "調査資料", href: "/dossiers" },
+  { index: "07", title: "About", jp: "このアーカイブについて", href: "/about" },
 ];
 
 export type PageMeta = {
@@ -54,17 +55,23 @@ export const PAGE_META: Record<NavItem["href"], PageMeta> = {
     jp: "クラス",
     note: "Four divisions — A, B, C, D — ranked by merit and points.",
   },
-  "/ranking": {
-    code: "03",
-    title: "Ranking",
-    jp: "順位",
-    note: "Evaluation is everything. The scoreboard that decides standing.",
-  },
   "/exams": {
-    code: "04",
+    code: "03",
     title: "Special Exams",
     jp: "特別試験",
     note: "Rules are given. The outcome belongs to those who read them.",
+  },
+  "/locations": {
+    code: "04",
+    title: "Locations",
+    jp: "場所",
+    note: "Environmental records of the spaces that shape life inside and beyond ANHS.",
+  },
+  "/ranking": {
+    code: "05",
+    title: "Ranking",
+    jp: "順位",
+    note: "Evaluation is everything. The scoreboard that decides standing.",
   },
   "/timeline": {
     code: "05",
@@ -73,13 +80,13 @@ export const PAGE_META: Record<NavItem["href"], PageMeta> = {
     note: "A chronology of the campus — recorded, month by month.",
   },
   "/dossiers": {
-    code: "05",
+    code: "06",
     title: "Dossiers",
     jp: "調査資料",
     note: "Classified case files connecting people, classes, and examinations.",
   },
   "/about": {
-    code: "06",
+    code: "07",
     title: "About",
     jp: "このアーカイブについて",
     note: "A fan archive. Unofficial, unaffiliated, quietly curated.",

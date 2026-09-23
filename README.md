@@ -4,188 +4,172 @@
 
 ### ようこそ実力至上主義の教室へ
 
-<img width="2298" height="1579" alt="image" src="https://github.com/user-attachments/assets/1ff4ced1-3d04-4ce8-b68c-2f37e9f2ff05" />
+An immersive, unofficial **Classroom of the Elite** archive experience—presented as an institutional record system from Advanced Nurturing High School.
 
-A fan-made **Classroom of the Elite** archive experience  
-designed around the visual identity of a restricted ANHS information system.
+**STATUS // ONLINE · ANIME SCOPE // S1—S4 EP16**
 
-**STATUS // ONLINE**
-
-[Live Demo](https://yokoso-jitsuryoku.vercel.app)
+[**ENTER THE LIVE ARCHIVE**](https://yokoso-jitsuryoku.vercel.app)
 
 </div>
 
 ---
 
-## // Overview
+## Overview
 
-**ANHS Private Archive** is an unofficial fan-made web experience inspired by  
-*Classroom of the Elite / ようこそ実力至上主義の教室へ*.
+**ANHS Private Archive** is a non-commercial fan project inspired by *Classroom of the Elite / ようこそ実力至上主義の教室へ*.
 
-Rather than presenting the series as a conventional wiki, this project treats its data as if it were part of an internal Advanced Nurturing High School archive.
+It is not designed as a conventional wiki. Characters, classes, examinations, environments, evaluations, and connected case files are presented through an editorial archive interface inspired by Advanced Nurturing High School: near-black surfaces, restrained magenta accents, mono metadata, serif display typography, architectural hairlines, generous negative space, and subtle GSAP motion.
 
-The interface combines:
+## Archive modules
 
-- classified archive presentation
-- dark institutional styling
-- restrained magenta accents
-- motion-driven record reveals
-- persistent soundtrack playback
-- character, class, exam, and evaluation records
-- a global access-gate experience
+| Module | Records | What it contains |
+|---|---:|---|
+| **Characters** | 64 | Searchable and filterable student, staff, and administrator records with individual detail routes. |
+| **Classes** | 10 | Class registers, student membership, standing, and dedicated class records. |
+| **Special Exams** | 10 | Examination rules, participants, outcomes, and static detail pages. |
+| **Locations** | 8 | Image-forward environmental records focused on architecture, terrain, institutional function, and place-based context. |
+| **Ranking / OAA** | 8 | Individual Year 2 initial OAA evaluations—not a fabricated full-school ranking. |
+| **Dossiers** | 6 | Curated, relationship-focused case files connecting institutions, incidents, internal conflicts, networks, and administrative operations. |
+| **About** | — | Project identity, archive philosophy, structure, evaluation context, and editorial notes. |
 
-The goal is to make browsing the archive feel like accessing an internal ANHS system rather than reading a standard database.
+The Timeline implementation remains in the source tree but is intentionally absent from the primary navigation.
 
----
+### Locations
 
-## // Live Archive
+The environmental archive currently documents:
 
-**Deployment**
+- Student Dormitory
+- Keyaki Mall
+- Student Council Room
+- Luxury Cruise Ship
+- Uninhabited Island — Year 1
+- Mixed Training Camp Facility
+- Uninhabited Island — Year 2
+- White Room Facility
 
-https://yokoso-jitsuryoku.vercel.app
+Location detail pages keep relationships deliberately light, linking only to relevant Exam and Dossier records.
 
-> ENTER THE SCHOOL  
-> Access the archive through the global entry gate.
+### Dossiers
 
----
+The curated case-file collection contains:
 
-## // Features
+- White Room
+- Student Council
+- Rooftop Incident
+- Class D Internal Conflict
+- Tsukishiro Intervention
+- First-Year Network
 
-### Archive System
+These are cross-record investigations rather than timeline events or character biographies.
 
-- Character archive
-- Character detail records
-- Class archive
-- Class detail records
-- Special Exam archive
-- Exam detail records
-- Individual OAA evaluation archive
-- Timeline archive
-- About archive
+## Current archive scope
 
-### Interaction
+The current canon boundary is **Season 1 through Season 4 Episode 16**. The archive does not claim complete light-novel coverage.
 
-- Global first-entry unlock gate
-- Persistent App Router shell
-- Global navigation overlay
-- Character search and filtering
-- Static detail route generation
-- Responsive layouts
-- Keyboard-accessible controls
-- Reduced-motion support
+All primary archive content is held in typed, centralized source data. Dynamic detail pages are statically enumerated with `generateStaticParams`, and unknown record IDs resolve through the application's not-found behavior.
 
-### Motion
+## Featured systems
 
-- GSAP page entrances
-- ScrollTrigger reveals
-- Route-specific archive motion
-- Navigation overlay animation
-- Initial unlock transition
+### Entry experience
 
----
+A fresh load begins at the global **ENTER THE SCHOOL** gate. The normal site shell remains hidden until entry, including when a visitor opens a detail route directly. Unlock state is intentionally session-memory only: a hard refresh returns to the gate, and no authentication or security behavior is implied.
 
-## // Current Archive Scope
+### Navigation and motion
 
-Current archive coverage:
+- Persistent global header and animated navigation overlay
+- Visible order: Characters, Classes, Special Exams, Locations, Ranking, Dossiers, About
+- Route-specific GSAP entrances and ScrollTrigger reveals
+- Keyboard-visible focus states and reduced-motion handling
+- Responsive editorial layouts across archive and detail views
 
-**Season 1 → Season 4 Episode 16**
+### Soundtrack
 
-Current source data includes:
+The site includes a persistent global soundtrack provider with **11 tracks**.
 
-| Archive | Records |
-|---|---:|
-| Characters | 64 |
-| Classes | 10 |
-| Special Exams | 10 |
-| OAA Evaluations | 8 |
-| Soundtrack Tracks | 11 |
+- **Quote** opens every fresh audio session
+- Autoplay is attempted; if the browser blocks it, the first valid interaction can begin playback
+- Playback continues across client-side navigation
+- A hard refresh starts a new track session
+- Volume persists locally; track, position, queue, and history do not persist across refreshes
+- Play/pause, next, previous, seeking, volume, and manual track selection are supported
+- A compact circular header control opens the expanded soundtrack panel on demand
 
-The archive follows the internal canon scope and mapping established for this project.
+## Tech stack
 
----
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 · App Router |
+| UI | React 19 · TypeScript · Tailwind CSS |
+| Motion | GSAP · ScrollTrigger |
+| Icons | Lucide React |
+| Deployment | Vercel |
 
-## // OAA Archive
+The installed `motion` package is not advertised here because the current interface uses GSAP for its implemented motion system.
 
-The Ranking section is structured as an **Individual Academic Evaluation Archive**, based on the Year 2 initial OAA system.
+## Architecture
 
-It is intentionally **not** presented as a fabricated complete school-wide ranking.
-
-Evaluations include:
-
-- Academic Ability
-- Physical Ability
-- Adaptability
-- Social Contribution
-- Overall Evaluation
-
----
-
-## // Soundtrack System
-
-The site includes a persistent global soundtrack system.
-
-### Playback behavior
-
-- Every fresh session begins with **Classroom of The Elite (Quote)**
-- Music persists across client-side route navigation
-- Hard refresh starts a new soundtrack session
-- Volume preference persists locally
-- Shuffle avoids immediate repeats
-- Previous-track history is preserved during the active session
-- Manual track selection is supported
-- Seek, volume, play, pause, next, and previous controls are available through the header soundtrack interface
-
-The soundtrack system uses one persistent HTML audio element mounted at the application root.
-
----
-
-## // Music
-
-Music featured in the website is by:
-
-**赤い神Enryu**
-
-Permission to use the tracks in this non-commercial fan project was granted directly by the artist via email.
-
-All music remains the property of its respective creator and rights holders.
-
-Special thanks to **赤い神Enryu** for allowing the soundtrack to be featured in this project.
-
----
-
-## // Tech Stack
-
-- **Next.js**
-- **React**
-- **TypeScript**
-- **GSAP**
-- **ScrollTrigger**
-- **Lucide React**
-- **Vercel**
-
----
-
-## // Architecture
+The root application shell composes the major global systems in this order:
 
 ```text
-src/
-├── app/
-│   ├── characters/
-│   ├── classes/
-│   ├── exams/
-│   ├── ranking/
-│   └── timeline/
-│
-├── components/
-│   ├── audio/
-│   ├── characters/
-│   ├── classes/
-│   ├── entry/
-│   ├── exams/
-│   ├── frame/
-│   ├── nav/
-│   └── ranking/
-│
-├── data/
-├── hooks/
-└── lib/
+SiteNavProvider
+└── SoundtrackProvider
+    └── InitialUnlockGate
+        ├── SiteFrame
+        └── Requested route
+```
+
+- `SiteNavProvider` coordinates global navigation state.
+- `NavigationOverlay` renders the primary archive menu.
+- `SoundtrackProvider` keeps one audio session alive across client-side routes.
+- `InitialUnlockGate` controls the stylistic first-entry reveal.
+- `SiteFrame` provides the persistent header, soundtrack control, and navigation trigger.
+- Typed data modules under `src/data` are the canonical archive source.
+
+## Local development
+
+Requirements: a current Node.js release and pnpm.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+Useful checks:
+
+```bash
+pnpm exec tsc --noEmit --pretty false
+pnpm lint
+pnpm build
+```
+
+## Deployment
+
+The project is deployed on Vercel:
+
+**[yokoso-jitsuryoku.vercel.app](https://yokoso-jitsuryoku.vercel.app)**
+
+For another Vercel deployment, import the repository and use the detected Next.js settings with pnpm as the package manager.
+
+## Current status
+
+The principal archive modules, global entry gate, navigation, soundtrack system, and static detail routes are implemented. Remaining work is focused on:
+
+- dedicated imagery for the Locations archive
+- final disposition of the internal Timeline section
+- ongoing browser, responsive, and production-build QA
+
+## Music credit
+
+Music by **赤い神Enryu**.
+
+Used with permission granted directly by the artist for this non-commercial fan project. All rights to the music remain with the respective creator and rightsholders; this repository does not grant redistribution rights.
+
+## Disclaimer
+
+This is an unofficial, non-commercial fan project. *Classroom of the Elite* and its original materials belong to their respective creators and rights holders. This project is not affiliated with, sponsored by, or endorsed by the official rights holders, and makes no ownership claim over the original series material.
+
+## Credits
+
+Created and developed by **Abiel Yusuf**.
