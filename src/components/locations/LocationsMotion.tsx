@@ -46,7 +46,7 @@ export function LocationsMotion({ children }: { children: ReactNode }) {
             .to(meta, { autoAlpha: 1, y: 0, duration: DURATION.base }, 0.25);
         };
 
-        if (index === 0) tl.call(reveal, [], 0.62);
+        if (index < 2) tl.call(reveal, [], 0.62 + index * 0.12);
         else ScrollTrigger.create({ trigger: item, start: "top 82%", once: true, onEnter: reveal });
       });
 

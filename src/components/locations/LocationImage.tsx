@@ -1,29 +1,42 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import type { LocationRecord } from "@/data/locations";
 
 type LocationImageProps = {
   location: LocationRecord;
   priority?: boolean;
   className?: string;
+  showRecordId?: boolean;
 };
 
 export function LocationImage({
   location,
   priority = false,
   className = "",
+  showRecordId = true,
 }: LocationImageProps) {
+  const [failed, setFailed] = useState(false);
+  const hasImage = Boolean(location.image) && !failed;
+
+  useEffect(() => {
+    setFailed(false);
+  }, [location.image]);
+
   return (
     <div
       data-location-image
       className={`relative overflow-hidden border border-line bg-bg-elev ${className}`}
     >
-      {location.image ? (
+      {hasImage ? (
         <Image
           src={location.image}
           alt={`${location.title} environment`}
           fill
           priority={priority}
           sizes="(max-width: 1024px) 100vw, 62vw"
+          onError={() => setFailed(true)}
           className="object-cover grayscale transition duration-1000 ease-out group-hover:scale-[1.015] group-hover:grayscale-0"
         />
       ) : (
@@ -40,9 +53,11 @@ export function LocationImage({
         </div>
       )}
 
-      <span className="absolute bottom-3 left-3 font-mono text-[8px] uppercase tracking-[0.24em] text-muted/50">
-        {location.recordId}
-      </span>
+      {showRecordId && (
+        <span className="absolute bottom-3 left-3 font-mono text-[8px] uppercase tracking-[0.24em] text-muted/50">
+          {location.recordId}
+        </span>
+      )}
     </div>
   );
 }

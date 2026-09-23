@@ -3,7 +3,7 @@ import { SectionLabel } from "@/components/common/SectionLabel";
 export function LocationHeader() {
   return (
     <header>
-      <SectionLabel data-location-label>ANHS Environment Index // Site Documentation</SectionLabel>
+      <SectionLabel data-location-label>Environment Archive // Site Documentation</SectionLabel>
       <h1 className="mt-8 overflow-hidden pb-1">
         <span
           data-location-title

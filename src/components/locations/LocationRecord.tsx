@@ -3,62 +3,53 @@ import type { LocationRecord as LocationData } from "@/data/locations";
 import { LocationImage } from "@/components/locations/LocationImage";
 
 export function LocationRecord({ location, index }: { location: LocationData; index: number }) {
-  const imageFirst = index % 2 === 0;
+  const position = index % 4;
+  const wide = position === 0 || position === 3;
+  const placement = {
+    0: "lg:col-span-7",
+    1: "lg:col-span-4 lg:col-start-9 lg:mt-24",
+    2: "lg:col-span-4 lg:mt-12",
+    3: "lg:col-span-7 lg:col-start-6",
+  }[position];
 
   return (
-    <article
-      data-location-item
-      className="group grid grid-cols-12 gap-x-8 gap-y-8 border-t border-line py-12 lg:gap-x-14 lg:py-20"
-    >
+    <article data-location-item className={`group min-w-0 ${placement}`}>
       <Link
         href={`/locations/${location.id}`}
-        className={`relative col-span-12 block focus-visible:outline-offset-4 lg:col-span-7 ${
-          imageFirst ? "lg:col-start-1" : "lg:col-start-6 lg:row-start-1"
-        }`}
+        className="block focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-accent"
         aria-label={`Open ${location.title} location record`}
       >
         <LocationImage
           location={location}
           priority={index === 0}
-          className="aspect-[16/10] w-full"
+          showRecordId={false}
+          className={`aspect-[16/10] w-full ${wide ? "lg:aspect-[16/11]" : "lg:aspect-[4/5]"}`}
         />
+
+        <div data-location-meta className="pt-5">
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 font-mono text-[8px] uppercase tracking-[0.26em] text-muted/50 sm:text-[9px]">
+            <span>{String(index + 1).padStart(2, "0")} // {location.category}</span>
+            <span>{location.recordId}</span>
+          </div>
+
+          <div className="mt-4 flex items-end justify-between gap-6 border-b border-line pb-5 transition-colors duration-500 group-hover:border-accent/35">
+            <div className="min-w-0">
+              <h2 className="font-display text-3xl uppercase leading-none tracking-[0.02em] text-fg transition-[color,translate] duration-700 ease-out group-hover:translate-x-1 sm:text-4xl">
+                {location.title}
+              </h2>
+              {location.japaneseTitle && (
+                <p className="mt-3 font-jp text-[9px] tracking-[0.32em] text-muted/40">
+                  {location.japaneseTitle}
+                </p>
+              )}
+            </div>
+            <span
+              aria-hidden="true"
+              className="mb-1 h-px w-8 shrink-0 bg-accent/55 transition-[width] duration-700 group-hover:w-12"
+            />
+          </div>
+        </div>
       </Link>
-
-      <div
-        data-location-meta
-        className={`col-span-12 self-center lg:col-span-4 ${
-          imageFirst ? "lg:col-start-9" : "lg:col-start-2 lg:row-start-1"
-        }`}
-      >
-        <div className="flex items-center justify-between gap-6 font-mono text-[9px] uppercase tracking-[0.28em] text-muted/55">
-          <span>{String(index + 1).padStart(2, "0")} // {location.category}</span>
-          <span>{location.recordId}</span>
-        </div>
-
-        <h2 className="mt-7">
-          <Link href={`/locations/${location.id}`} className="block focus-visible:text-accent">
-            <span className="block font-display text-4xl uppercase leading-[0.95] tracking-[0.02em] text-fg transition-[translate] duration-700 ease-out group-hover:translate-x-2 sm:text-5xl">
-              {location.title}
-            </span>
-          </Link>
-        </h2>
-
-        {location.japaneseTitle && (
-          <p className="mt-4 font-jp text-[10px] tracking-[0.35em] text-muted/45">
-            {location.japaneseTitle}
-          </p>
-        )}
-
-        <p className="mt-7 max-w-[48ch] font-mono text-[11px] leading-relaxed tracking-[0.07em] text-muted/70">
-          {location.summary}
-        </p>
-
-        <div className="mt-8 flex items-center gap-4 font-mono text-[9px] uppercase tracking-[0.28em] text-muted/55 transition-colors duration-500 group-hover:text-fg">
-          <span>Open Location</span>
-          <span aria-hidden="true" className="h-px w-10 bg-accent/55 transition-[width] duration-700 group-hover:w-16" />
-          <span aria-hidden="true" className="text-accent">▸</span>
-        </div>
-      </div>
     </article>
   );
 }
